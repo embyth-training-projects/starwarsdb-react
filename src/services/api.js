@@ -8,12 +8,14 @@ export default class Swapi {
     this._endPoint = `https://swapi.dev/api`;
 
     this._adaptPlanetToClient = this._adaptPlanetToClient.bind(this);
+    this._adaptPersonToClient = this._adaptPersonToClient.bind(this);
+    this._adaptStarshipToClient = this._adaptStarshipToClient.bind(this);
   }
 
   getAllPlanets() {
     return this._load({url: `planets`})
       .then(Swapi.toJSON)
-      .then((body) => body.results);
+      .then((body) => body.results.map(this._adaptPlanetToClient));
   }
 
   getPlanet(id) {
@@ -25,7 +27,7 @@ export default class Swapi {
   getAllPeople() {
     return this._load({url: `people`})
       .then(Swapi.toJSON)
-      .then((body) => body.results);
+      .then((body) => body.results.map(this._adaptPersonToClient));
   }
 
   getPerson(id) {
@@ -37,7 +39,7 @@ export default class Swapi {
   getAllStarships() {
     return this._load({url: `starships`})
       .then(Swapi.toJSON)
-      .then((body) => body.results);
+      .then((body) => body.results.map(this._adaptStarshipToClient));
   }
 
   getStarship(id) {
