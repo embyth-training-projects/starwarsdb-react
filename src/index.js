@@ -1,8 +1,8 @@
-import Swapi from './services/api';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const END_POINT = `https://swapi.dev/api`;
+import App from './components/app';
 
-const swapi = new Swapi(END_POINT);
+const rootNode = document.querySelector(`#root`);
 
-swapi.getAllPlanets()
-  .then((body) => console.log(body));
+ReactDOM.render(<App />, rootNode);
