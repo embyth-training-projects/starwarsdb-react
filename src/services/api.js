@@ -6,7 +6,17 @@ const SuccessHTTPStatusRange = {
 export default class Swapi {
   constructor() {
     this._endPoint = `https://swapi.dev/api`;
+    this._imageEndPoint = `https://starwars-visualguide.com/assets/img`;
 
+    this.getAllPeople = this.getAllPeople.bind(this);
+    this.getAllPlanets = this.getAllPlanets.bind(this);
+    this.getAllStarships = this.getAllStarships.bind(this);
+    this.getPerson = this.getPerson.bind(this);
+    this.getPlanet = this.getPlanet.bind(this);
+    this.getStarship = this.getStarship.bind(this);
+    this.getPersonImage = this.getPersonImage.bind(this);
+    this.getPlanetsImage = this.getPlanetsImage.bind(this);
+    this.getStarshipImage = this.getStarshipImage.bind(this);
     this._adaptPlanetToClient = this._adaptPlanetToClient.bind(this);
     this._adaptPersonToClient = this._adaptPersonToClient.bind(this);
     this._adaptStarshipToClient = this._adaptStarshipToClient.bind(this);
@@ -46,6 +56,18 @@ export default class Swapi {
     return this._load({url: `starships/${id}`})
       .then(Swapi.toJSON)
       .then(this._adaptStarshipToClient);
+  }
+
+  getPersonImage({id}) {
+    return `${this._imageEndPoint}/characters/${id}.jpg`;
+  }
+
+  getPlanetsImage({id}) {
+    return `${this._imageEndPoint}/planets/${id}.jpg`;
+  }
+
+  getStarshipImage({id}) {
+    return `${this._imageEndPoint}/starships/${id}.jpg`;
   }
 
   _getIdFromUrl(url) {
