@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import Spinner from '../spinner';
-import Swapi from '../../services/api';
 
 import './list.css';
 
@@ -9,20 +8,22 @@ export default class List extends Component {
   constructor() {
     super();
 
-    this._swapi = new Swapi();
     this.state = {
-      people: {},
+      list: {},
       isLoading: true
     };
   }
 
   componentDidMount() {
-    this._swapi.getAllPeople()
-      .then((people) => this.setState({people, isLoading: false}));
+    const {getData} = this.props;
+
+    getData()
+      .then((list) => this.setState({list, isLoading: false}))
+      .catch(() => this.setState({isLoading: false}));
   }
 
-  _getListItems(people) {
-    return people.map(({id, name}) => {
+  _getListItems(list) {
+    return list.map(({id, name}) => {
       return (
         <li className="list-group-item" key={id} onClick={() => this.props.onListItemClick(id)}>
           {name}
@@ -32,11 +33,11 @@ export default class List extends Component {
   }
 
   render() {
-    const {isLoading, people} = this.state;
+    const {isLoading, list} = this.state;
 
     return (
       <ul className="item-list list-group">
-        {isLoading ? <Spinner /> : this._getListItems(people)}
+        {isLoading ? <Spinner /> : this._getListItems(list)}
       </ul>
     );
   }
