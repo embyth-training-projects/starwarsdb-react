@@ -4,13 +4,27 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import ErrorBoundry from '../error-boundry';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import {PeoplePage, PlanetsPage, StarshipsPage} from '../pages';
+import {PeoplePage, PlanetsPage, StarshipsPage, SecretPage, LoginPage} from '../pages';
 import StarshipsDetails from '../starship';
 
 import Swapi from '../../services/api';
 import {SwapiProvider, SwapiConsumer} from '../../services/provider';
 
 export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isLoggedIn: false
+    };
+
+    this.loginButtonClickHandler = this.loginButtonClickHandler.bind(this);
+  }
+
+  loginButtonClickHandler() {
+    this.setState({isLoggedIn: true});
+  }
+
   render() {
     return (
       <ErrorBoundry>
@@ -49,6 +63,9 @@ export default class App extends Component {
                   }
                 }
               </SwapiConsumer>
+
+              <Route path="/login" render={() => <LoginPage isLoggedIn={this.state.isLoggedIn} onLoginButtonClick={this.loginButtonClickHandler} />} />
+              <Route path="/secret" render={() => <SecretPage isLoggedIn={this.state.isLoggedIn} />} />
 
             </div>
           </Router>
