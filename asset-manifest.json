@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.1f826d73.chunk.css",
-    "main.js": "/static/js/main.9ad5f992.chunk.js",
-    "main.js.map": "/static/js/main.9ad5f992.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.addc3473.js",
-    "runtime-main.js.map": "/static/js/runtime-main.addc3473.js.map",
-    "static/js/2.e6acab72.chunk.js": "/static/js/2.e6acab72.chunk.js",
-    "static/js/2.e6acab72.chunk.js.map": "/static/js/2.e6acab72.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.1f826d73.chunk.css.map": "/static/css/main.1f826d73.chunk.css.map",
-    "static/js/2.e6acab72.chunk.js.LICENSE.txt": "/static/js/2.e6acab72.chunk.js.LICENSE.txt"
+    "main.css": "/starwarsdb-react/static/css/main.1f826d73.chunk.css",
+    "main.js": "/starwarsdb-react/static/js/main.9ad5f992.chunk.js",
+    "main.js.map": "/starwarsdb-react/static/js/main.9ad5f992.chunk.js.map",
+    "runtime-main.js": "/starwarsdb-react/static/js/runtime-main.34a51414.js",
+    "runtime-main.js.map": "/starwarsdb-react/static/js/runtime-main.34a51414.js.map",
+    "static/js/2.e6acab72.chunk.js": "/starwarsdb-react/static/js/2.e6acab72.chunk.js",
+    "static/js/2.e6acab72.chunk.js.map": "/starwarsdb-react/static/js/2.e6acab72.chunk.js.map",
+    "index.html": "/starwarsdb-react/index.html",
+    "static/css/main.1f826d73.chunk.css.map": "/starwarsdb-react/static/css/main.1f826d73.chunk.css.map",
+    "static/js/2.e6acab72.chunk.js.LICENSE.txt": "/starwarsdb-react/static/js/2.e6acab72.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.addc3473.js",
+    "static/js/runtime-main.34a51414.js",
     "static/js/2.e6acab72.chunk.js",
     "static/css/main.1f826d73.chunk.css",
     "static/js/main.9ad5f992.chunk.js"
