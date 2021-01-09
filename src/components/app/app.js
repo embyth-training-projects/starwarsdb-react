@@ -29,7 +29,7 @@ export default class App extends Component {
     return (
       <ErrorBoundry>
         <SwapiProvider value={new Swapi()}>
-          <Router>
+          <Router basename="/">
             <div className="container-xl">
 
               <Header />
