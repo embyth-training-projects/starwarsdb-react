@@ -5,9 +5,10 @@ import ErrorBoundry from '../error-boundry';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import {PeoplePage, PlanetsPage, StarshipsPage} from '../pages';
+import StarshipsDetails from '../starship';
 
 import Swapi from '../../services/api';
-import {SwapiProvider} from '../../services/provider';
+import {SwapiProvider, SwapiConsumer} from '../../services/provider';
 
 export default class App extends Component {
   render() {
@@ -32,7 +33,22 @@ export default class App extends Component {
               />
               <Route path="/people/" component={PeoplePage} />
               <Route path="/planets/" component={PlanetsPage} />
-              <Route path="/starships/" component={StarshipsPage} />
+              <Route path="/starships/" exact component={StarshipsPage} />
+
+              <SwapiConsumer>
+                {
+                  (swapiProps) => {
+                    const {getStarship, getStarshipImage} = swapiProps;
+
+                    return (
+                      <Route path="/starships/:id" render={({match}) => {
+                        const {id} = match.params;
+                        return <StarshipsDetails itemId={id} getData={getStarship} getImageUrl={getStarshipImage} />;
+                      }} />
+                    );
+                  }
+                }
+              </SwapiConsumer>
 
             </div>
           </Router>
