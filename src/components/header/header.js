@@ -20,7 +20,7 @@ export default class Header extends Component {
           <Link to="/planets">Planets</Link>
         </li>
         <li>
-          <Link to="/starships">Starships</Link>
+          <Link to="/starships/">Starships</Link>
         </li>
         <li>
           <Link to="/secret">Secret</Link>

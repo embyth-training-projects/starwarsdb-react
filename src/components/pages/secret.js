@@ -7,7 +7,7 @@ export default class SecretPage extends Component {
       return (
         <div className="alert alert-dismissible alert-info text-center p-5">
           <h3 className="alert-heading">The big secret is...</h3>
-          <strong>Harry Potter Universe is better than StarWars!</strong> Sorry, about that... :(
+          <strong>Darth Vader is the father of Luke Skywalker!</strong> Sorry, if you didn't know... :(
         </div>
       );
     }
