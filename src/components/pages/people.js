@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 
 import ErrorBoundry from '../error-boundry';
 import SectionView from '../section';
@@ -7,22 +8,11 @@ import Person from '../person';
 
 import {SwapiConsumer} from '../../services/provider';
 
-export default class PeoplePage extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      selectedItem: null,
-    };
-
-    this.listItemClickHandler = this.listItemClickHandler.bind(this);
-  }
-
-  listItemClickHandler(selectedItem) {
-    this.setState({selectedItem});
-  };
-
+class PeoplePage extends Component {
   render() {
+    const {id} = this.props.match.params;
+    const {history} = this.props;
+
     return (
       <ErrorBoundry>
         <SwapiConsumer>
@@ -32,8 +22,8 @@ export default class PeoplePage extends Component {
 
               return (
                 <SectionView
-                  left={<List onListItemClick={this.listItemClickHandler} getData={getAllPeople} />}
-                  right={<Person itemId={this.state.selectedItem} getData={getPerson} getImageUrl={getPersonImage} />}
+                  left={<List onListItemClick={(id) => history.push(id)} getData={getAllPeople} />}
+                  right={<Person itemId={id} getData={getPerson} getImageUrl={getPersonImage} />}
                 />
               );
             }
@@ -43,3 +33,5 @@ export default class PeoplePage extends Component {
     );
   }
 }
+
+export default withRouter(PeoplePage);
